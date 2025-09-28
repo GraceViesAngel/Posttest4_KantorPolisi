@@ -108,9 +108,15 @@ Metode ini tidak punya isi di dalam Personel, karena memang tiap jenis personel 
 Di sini terlihat bagaimana Polisi dan StaffSipil mewarisi kerangka dari Personel. Mereka mengisi ulang (override) method deskripsiTugas() sesuai dengan peran masing-masing.
 
 Polisi: lebih fokus pada patroli, keamanan, dan penegakan hukum.
+
 Staff Sipil: lebih ke urusan administrasi dan operasional kantor.
 
 Dengan konsep ini, setiap jenis personel otomatis punya identitas dasar (nama & id), tapi tetap punya tugas berbeda sesuai perannya.
+
+
+
+
+
 
 3. Interface – Pelaporan
 
@@ -156,9 +162,9 @@ Di dalam program manajemen kantor polisi, konsep polymorphism dimanfaatkan dalam
 Pada class Polisi, terdapat dua method dengan nama sama yaitu tampilkanData().
 
 
-1. Versi pertama tampilkanData() hanya menampilkan informasi umum polisi, seperti nama, pangkat, dan nomor identitas.
+a. Versi pertama tampilkanData() hanya menampilkan informasi umum polisi, seperti nama, pangkat, dan nomor identitas.
 
-2. Versi kedua tampilkanData(boolean detail) memberikan pilihan untuk menampilkan informasi tambahan seperti unit kerja atau nomor telepon, tetapi hanya jika parameter detail bernilai true.
+b. Versi kedua tampilkanData(boolean detail) memberikan pilihan untuk menampilkan informasi tambahan seperti unit kerja atau nomor telepon, tetapi hanya jika parameter detail bernilai true.
 
 Dengan cara ini, sistem lebih fleksibel karena tidak perlu membuat nama method baru untuk fungsi yang hampir sama. Cukup gunakan method dengan nama sama, lalu tentukan apakah ingin melihat data ringkas atau data yang lebih lengkap.
 
@@ -174,9 +180,9 @@ Dengan cara ini, sistem lebih fleksibel karena tidak perlu membuat nama method b
 
 Di sini ada dua method yang namanya sama persis yaitu tambahPolisi, tapi parameternya berbeda.
 
-1. Versi pertama dipakai kalau kita sudah punya objek Polisi yang lengkap, tinggal dimasukkan ke dalam list.
+a. Versi pertama dipakai kalau kita sudah punya objek Polisi yang lengkap, tinggal dimasukkan ke dalam list.
 
-2. Versi kedua dipakai kalau kita baru punya data mentah berupa nrp, nama, pangkat, dan status. Method ini otomatis membuat objek Polisi baru lalu memanggil method pertama.
+b. Versi kedua dipakai kalau kita baru punya data mentah berupa nrp, nama, pangkat, dan status. Method ini otomatis membuat objek Polisi baru lalu memanggil method pertama.
 
 Kedua method ini menunjukkan Polymorphism dengan Overloading: nama method sama, tapi cara pakainya bisa berbeda sesuai kebutuhan. Jadi program lebih fleksibel, bisa menerima data dalam bentuk objek atau data mentah.
 

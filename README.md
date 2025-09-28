@@ -121,15 +121,10 @@ Di sini terlihat bagaimana Polisi dan StaffSipil mewarisi kerangka dari Personel
 ### 3. Interface – Pelaporan
 
 
-
-<img width="151" height="22" alt="image" src="https://github.com/user-attachments/assets/79569d82-09b0-4069-b109-f6b0226fc7ae" />
-
-
-
-
-
-
+<p align="center">
+  <img width="151" height="22" alt="image" src="https://github.com/user-attachments/assets/79569d82-09b0-4069-b109-f6b0226fc7ae" />
 <img width="345" height="128" alt="image" src="https://github.com/user-attachments/assets/212de484-8a53-4552-b0ac-146cb7a341a5" />
+</p>
 
 
 

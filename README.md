@@ -121,6 +121,8 @@ Dengan konsep ini, setiap jenis personel otomatis punya identitas dasar (nama & 
 
 
 
+
+
 <img width="345" height="128" alt="image" src="https://github.com/user-attachments/assets/212de484-8a53-4552-b0ac-146cb7a341a5" />
 
 
@@ -163,6 +165,7 @@ Dengan cara ini, sistem lebih fleksibel karena tidak perlu membuat nama method b
 
 
 2. Polymorphism dengan Overloading Class OperasionalKantorPolisi
+
 
 <img width="860" height="112" alt="image" src="https://github.com/user-attachments/assets/fddfce86-8e06-4f83-98bb-89986597cec6" />
 

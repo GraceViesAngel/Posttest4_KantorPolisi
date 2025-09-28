@@ -65,8 +65,108 @@ Package ini berisi class utama yang menampilkan menu dan antarmuka untuk penggun
 
 Dengan pembagian struktur seperti ini, sistem Kantor Polisi jadi lebih terorganisir. Data tetap rapi di Model, aturan program dikelola Controller, dan interaksi dengan user ditangani View.
 
+***************************************
+
+<h2 align="center">📍 Penjelasan Penerapan Abstraction pada Sistem Kantor Polisi</h2>
 
 
+Pada program Sistem Kantor Polisi, konsep abstraction dipakai dengan memanfaatkan abstract class serta interface. Tujuannya supaya ada gambaran umum yang bisa diwarisi oleh subclass, namun detail implementasi tetap disesuaikan dengan kebutuhan masing-masing.
+
+1. Abstract Class – Kelas Personel
+   
+<img width="632" height="459" alt="image" src="https://github.com/user-attachments/assets/1cd2f8b1-fe96-4fbf-9873-e30c166f9870" />
+
+
+
+=> PENJELASAN
+
+Class Personel dijadikan sebagai abstract class karena hanya berfungsi sebagai kerangka umum untuk semua jenis personel di kantor polisi. Di dalamnya ada atribut dasar seperti nama dan id, serta satu metode abstrak deskripsiTugas().
+
+Metode ini tidak punya isi di dalam Personel, karena memang tiap jenis personel punya tugas yang berbeda. Implementasi detailnya baru diberikan pada subclass, misalnya Polisi dan StaffSipil. Dengan cara ini, sistem bisa tetap konsisten, tapi fleksibel menyesuaikan tugas masing-masing.
+
+
+
+2. Subclass Abstract Class – Kelas Polisi dan StaffSipil
+
+
+<img width="773" height="751" alt="image" src="https://github.com/user-attachments/assets/feea01ca-146f-40f8-90fc-d2fe779b9688" />
+
+
+<img width="928" height="812" alt="image" src="https://github.com/user-attachments/assets/b0b9cf9b-b3bf-44ee-b7ac-a1c6dfccfe47" />
+
+
+
+=> PENJELASAN
+
+
+Di sini terlihat bagaimana Polisi dan StaffSipil mewarisi kerangka dari Personel. Mereka mengisi ulang (override) method deskripsiTugas() sesuai dengan peran masing-masing.
+
+Polisi → lebih fokus pada patroli, keamanan, dan penegakan hukum.
+Staff Sipil → lebih ke urusan administrasi dan operasional kantor.
+
+Dengan konsep ini, setiap jenis personel otomatis punya identitas dasar (nama & id), tapi tetap punya tugas berbeda sesuai perannya.
+
+3. Interface – Pelaporan
+
+<img width="151" height="22" alt="image" src="https://github.com/user-attachments/assets/79569d82-09b0-4069-b109-f6b0226fc7ae" />
+
+
+
+<img width="345" height="128" alt="image" src="https://github.com/user-attachments/assets/212de484-8a53-4552-b0ac-146cb7a341a5" />
+
+
+
+=> PENJELASAN
+
+
+Selain abstract class, program juga menggunakan interface bernama Pelaporan. Interface ini mendefinisikan metode jalankanTugas() yang harus diimplementasikan oleh setiap class yang menggunakannya.
+
+Interface ini dipakai untuk memberi kepastian bahwa setiap personel (baik polisi maupun staff sipil) bisa menjalankan tugas utamanya, meskipun detail implementasinya berbeda-beda.
+
+
+************************
+
+<h2 align="center"> 📍 Penerapan Polymorphism dalam Sistem Manajemen Kantor Polisi</h2>
+
+
+Di dalam program manajemen kantor polisi, konsep polymorphism dimanfaatkan dalam dua bentuk utama, yaitu method overloading dan method overriding.
+
+
+
+
+1. Polymorphism dengan Overriding Class PolisI
+
+<img width="1088" height="441" alt="image" src="https://github.com/user-attachments/assets/028d5902-76b8-4cb5-b108-2353d0182ccc" />
+
+
+=> PENJELASAN
+
+
+Pada class Polisi, terdapat dua method dengan nama sama yaitu tampilkanData().
+
+
+1. Versi pertama tampilkanData() hanya menampilkan informasi umum polisi, seperti nama, pangkat, dan nomor identitas.
+
+2. Versi kedua tampilkanData(boolean detail) memberikan pilihan untuk menampilkan informasi tambahan seperti unit kerja atau nomor telepon, tetapi hanya jika parameter detail bernilai true.
+
+Dengan cara ini, sistem lebih fleksibel karena tidak perlu membuat nama method baru untuk fungsi yang hampir sama. Cukup gunakan method dengan nama sama, lalu tentukan apakah ingin melihat data ringkas atau data yang lebih lengkap.
+
+
+
+2. Polymorphism dengan Overloading Class OperasionalKantorPolisi
+
+<img width="860" height="112" alt="image" src="https://github.com/user-attachments/assets/fddfce86-8e06-4f83-98bb-89986597cec6" />
+
+
+=> PENJELASAN
+
+Di sini ada dua method yang namanya sama persis yaitu tambahPolisi, tapi parameternya berbeda.
+
+1. Versi pertama dipakai kalau kita sudah punya objek Polisi yang lengkap, tinggal dimasukkan ke dalam list.
+
+2. Versi kedua dipakai kalau kita baru punya data mentah berupa nrp, nama, pangkat, dan status. Method ini otomatis membuat objek Polisi baru lalu memanggil method pertama.
+
+Kedua method ini menunjukkan Polymorphism dengan Overloading: nama method sama, tapi cara pakainya bisa berbeda sesuai kebutuhan. Jadi program lebih fleksibel, bisa menerima data dalam bentuk objek atau data mentah.
 
 
 ============================================================================================

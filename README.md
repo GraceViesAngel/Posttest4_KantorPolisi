@@ -72,7 +72,7 @@ Dengan pembagian struktur seperti ini, sistem Kantor Polisi jadi lebih terorgani
 
 Pada program Sistem Kantor Polisi, konsep abstraction dipakai dengan memanfaatkan abstract class serta interface. Tujuannya supaya ada gambaran umum yang bisa diwarisi oleh subclass, namun detail implementasi tetap disesuaikan dengan kebutuhan masing-masing.
 
-1. Abstract Class – Kelas Personel
+### 1. Abstract Class – Kelas Personel
 
    
 <img width="632" height="459" alt="image" src="https://github.com/user-attachments/assets/1cd2f8b1-fe96-4fbf-9873-e30c166f9870" />
@@ -91,7 +91,7 @@ Metode ini tidak punya isi di dalam Personel, karena memang tiap jenis personel 
 
 
 
-2. Subclass Abstract Class – Kelas Polisi dan StaffSipil
+### 2. Subclass Abstract Class – Kelas Polisi dan StaffSipil
 
 
 <img width="773" height="751" alt="image" src="https://github.com/user-attachments/assets/feea01ca-146f-40f8-90fc-d2fe779b9688" />
@@ -118,7 +118,7 @@ Di sini terlihat bagaimana Polisi dan StaffSipil mewarisi kerangka dari Personel
 
 
 
-3. Interface – Pelaporan
+### 3. Interface – Pelaporan
 
 
 
@@ -151,7 +151,7 @@ Di dalam program manajemen kantor polisi, konsep polymorphism dimanfaatkan dalam
 
 
 
-1. Polymorphism dengan Overriding Class PolisI
+### 1. Polymorphism dengan Overriding Class PolisI
 
 <img width="1088" height="441" alt="image" src="https://github.com/user-attachments/assets/028d5902-76b8-4cb5-b108-2353d0182ccc" />
 
@@ -170,7 +170,7 @@ Pada class Polisi, terdapat dua method dengan nama sama yaitu tampilkanData().
 
 
 
-2. Polymorphism dengan Overloading Class OperasionalKantorPolisi
+### 2. Polymorphism dengan Overloading Class OperasionalKantorPolisi
 
 
 <img width="860" height="112" alt="image" src="https://github.com/user-attachments/assets/fddfce86-8e06-4f83-98bb-89986597cec6" />

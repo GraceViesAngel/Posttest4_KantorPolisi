@@ -28,54 +28,41 @@
 
 ****************************************
 
-Kantor polisi adalah lembaga layanan publik yang menjaga ketertiban, menegakkan hukum, dan melindungi masyarakat; untuk menertibkan alur kerja harian. nama sistem saya yaitu, aplikasi "Sistem Kantor Polisi" ini adalah program lanjutan Post Test 1 dan 2. Saya membuat aplikasi Sistem Kantor Polisi yang membagi fitur ke tiga modul: Informasi Kantor Polisi (dipisah lagi menjadi Polisi dan Staff Sipil), Jadwal Patroli, dan Kasus Penyelidikan. Strukturnya pakai OOP yang jelas. Ada satu kelas induk Personel, lalu dua turunan: Polisi dan StaffSipil ini memenuhi syarat inheritance (1 superclass, 2 subclass). Semua field aku kunci private dan diakses lewat getter/setter (encapsulation). Saya juga memakai override method deskripsiTugas() di masing-masing subclass supaya perilakunya beda sesuai peran; beberapa model override toString() biar output tabel rapi, bagian ini sebagai nilai tambah overriding. Kodenya dipisah ke tiga paket: data_kantorpolisi (model), operasional_kantorpolisi (logika + validasi + generator ID), dan menu_kantorpolisi (UI). Saya menambahkan fitur overriding pada hierarki kelas personel. Di data_kantorpolisi.Personel saya sediakan method deskripsiTugas() sebagai perilaku umum. Lalu di data_kantorpolisi.Polisi dan data_kantorpolisi.StaffSipil saya mengoverride method tersebut sehingga masing-masing memberikan deskripsi yang berbeda sesuai peran. Dengan begitu, ketika objek dipanggil melalui referensi bertipe Personel, hasil yang keluar tetap mengikuti jenis objek aslinya, inimenunjukkan polymorphism berjalan. Selain itu, saya juga mengoverride toString() pada model seperti JadwalPatroli dan StaffSipil agar format teks yang tampil di tabel konsol rapi dan konsisten. Implementasi ini melengkapi syarat utama (enkapsulasi dan inheritance) sekaligus memenuhi bagian nilai tambah yang diminta pada Post Test 3.
+Kantor polisi adalah lembaga layanan publik yang menjaga ketertiban, menegakkan hukum, dan melindungi masyarakat; untuk menertibkan alur kerja harian. nama sistem saya yaitu, aplikasi "Sistem Kantor Polisi" ini adalah program lanjutan Post Test 1 dan 2. 
+
+Saya membuat aplikasi Sistem Kantor Polisi yang membagi fitur ke tiga modul: Informasi Kantor Polisi (dipisah lagi menjadi Polisi dan Staff Sipil), Jadwal Patroli, dan Kasus Penyelidikan. Strukturnya pakai OOP yang jelas. Ada satu kelas induk Personel, lalu dua turunan: Polisi dan StaffSipil ini memenuhi syarat inheritance (1 superclass, 2 subclass). 
+
+Semua field aku kunci private dan diakses lewat getter/setter (encapsulation). Saya juga memakai override method deskripsiTugas() di masing-masing subclass supaya perilakunya beda sesuai peran; beberapa model override toString() biar output tabel rapi, bagian ini sebagai nilai tambah overriding. Kodenya dipisah ke tiga paket: data_kantorpolisi (model), operasional_kantorpolisi (logika + validasi + generator ID), dan menu_kantorpolisi (UI).
+
+
+Saya menambahkan fitur overriding pada hierarki kelas personel. Di data_kantorpolisi.Personel saya sediakan method deskripsiTugas() sebagai perilaku umum. Lalu di data_kantorpolisi.Polisi dan data_kantorpolisi.StaffSipil saya mengoverride method tersebut sehingga masing-masing memberikan deskripsi yang berbeda sesuai peran. Dengan begitu, ketika objek dipanggil melalui referensi bertipe Personel, hasil yang keluar tetap mengikuti jenis objek aslinya, inimenunjukkan polymorphism berjalan. Selain itu, saya juga mengoverride toString() pada model seperti JadwalPatroli dan StaffSipil agar format teks yang tampil di tabel konsol rapi dan konsisten. Implementasi ini melengkapi syarat utama (enkapsulasi dan inheritance) sekaligus memenuhi bagian nilai tambah yang diminta pada Post Test 3.
 
 ============================================================================================
 
 
-### Penggunaan getter & setter
+## Penerapan MVC dan Struktur Packages Program
 
-<img width="704" height="187" alt="image" src="https://github.com/user-attachments/assets/4885bde7-93cb-4a34-9c8c-c28072ade91c" />
+### 1. Package `data_kantorpolisi` (Model)
 
+Package ini isinya class-class yang menggambarkan data utama dalam sistem kantor polisi. Misalnya data personel, polisi, staff sipil, hingga laporan kasus. Semua atribut penting seperti nama, pangkat, jabatan, ID, dan informasi lain dibuat sebagai properti yang sifatnya **private** supaya tetap aman. Akses dan perubahan datanya dilakukan lewat getter dan setter. Dengan cara ini, data yang tersimpan rapi di dalam objek tidak bisa diubah sembarangan dari luar class.
 
-=> PENJELASAN
+---
 
-Penggunaan yang saya pakai ini adalah getter & setter untuk menerapkan enkapsulasi. getNrp() saya buat untuk membaca NRP dengan cara mengambil ID dari kelas induk (getIdInternal()), dan setNrp(nrp) untuk mengubah NRP lewat pintu yang sama (setIdInternal(nrp)) jadi identitas polisi tetap disimpan satu sumber di superclass. Lalu getPangkat()/setPangkat() dipakai membaca menulis nilai pangkat, dan getStatus()/setStatus() untuk membaca–menulis status. Akses ke field saya batasi lewat method ini supaya data tidak diubah sembarang; alurnya, UI hanya membaca pakai getter saat menampilkan tabel, sedangkan perubahan dilakukan lewat setter di layer service setelah lulus validasi.
+### 2. Package `operasional_kantorpolisi` (Controller)
 
+Di bagian ini terdapat class-class yang menangani logika dan aturan kerja aplikasi. Semua proses utama dilakukan di sini, mulai dari validasi data, penambahan laporan, pengaturan jadwal patroli, sampai pengelolaan kasus. Controller menerima input dari bagian antarmuka (UI), lalu mengolahnya dengan memanfaatkan data dari Model. Setelah selesai diproses, hasilnya akan dikembalikan lagi ke UI. Dengan begitu, aturan kerja program tetap jelas dan tidak tercampur dengan tampilan.
 
+---
 
+### 3. Package `menu_kantorpolisi` (View)
 
-### Superclass personel
-<img width="745" height="561" alt="image" src="https://github.com/user-attachments/assets/86a17776-ca6b-4970-82bb-6f0d589916b4" />
+Package ini berisi class utama yang menampilkan menu dan antarmuka untuk pengguna. Dari sinilah user berinteraksi langsung dengan program, misalnya memilih opsi untuk menambah personel, melihat jadwal, atau mencatat kasus baru. Package ini hanya bertugas menampilkan informasi dan menerima input, lalu input tersebut diteruskan ke Controller. Karena fungsinya sebagai antarmuka, class di sini tidak perlu punya properti data sendiri.
 
- => PENJELASAN
+---
 
-Personel adalah kelas induk untuk semua orang di sistem polisi maupun staff sipil. Di sini saya menyimpan dua data dasar, yaitu id dan nama, keduanya private supaya tidak bisa diubah sembarang dari luar. Pengisian awal dilakukan lewat konstruktor Personel(String id, String nama), lalu aksesnya dikontrol dengan getter: ada getId() untuk membaca identitas (NRP/ID Staff) dan getNama() serta setNama() untuk mengelola nama. Identitas tidak saya sediakan setId() publik karena itu penanda utama; kalau subclass butuh mengatur ulang ID secara terkontrol, saya sediakan getIdInternal() dan setIdInternal() yang protected, jadi hanya bisa dipakai oleh turunan seperti Polisi dan StaffSipil. Terakhir, ada deskripsiTugas() sebagai perilaku dasar yang nantinya dioverride di subclass agar masing-masing punya penjelasan tugas yang sesuai perannya.
-
-
-
-### Subclass (Kantor Polisi)
-
-<img width="932" height="724" alt="image" src="https://github.com/user-attachments/assets/2824753d-5326-4b9c-9783-17bac3871935" />
+Dengan pembagian struktur seperti ini, sistem Kantor Polisi jadi lebih terorganisir. Data tetap rapi di Model, aturan program dikelola Controller, dan interaksi dengan user ditangani View.
 
 
-=> PENJELASAN
-
-
-Program ini adalah kelas Polisi yang berperan sebagai subclass dari Personel—sama konsepnya dengan StaffSipil yang juga subclass dari Personel. Bedanya cuma di data khususnya: Polisi punya pangkat dan status, sedangkan StaffSipil punya bagian dan status. NRP polisi disimpan sebagai ID milik induk (super) dan diakses lewat getNrp()/setNrp() yang menerus ke getIdInternal()/setIdInternal(). Semua field dibuat private lalu diakses pakai getter/setter (enkapsulasi). Di bagian bawah ada override deskripsiTugas() supaya isi pesannya sesuai peran polisi, dan override toString() biar gampang dicetak ke tabel. Intinya: Polisi dan StaffSipil sama-sama turunan Personel, hanya atribut dan isi fungsinya yang disesuaikan perannya.
-
-
-
-
-### Override
-
-
-<img width="888" height="235" alt="image" src="https://github.com/user-attachments/assets/f2c33b51-4d0f-4047-a1b3-e13671ea76e7" />
-
-
-=> PENJELASAN
-
-Selanjutnya, ini adalah penggunaan override. Di kelas Polisi saya membuat versi khusus dari fungsi deskripsiTugas() yang berasal dari Personel, jadi saat deskripsiTugas() dipanggil pada objek polisi, yang keluar adalah kalimat khusus untuk polisi ini menunjukkan polymorphism. Saya juga membuat versi khusus toString() agar ketika objek dicetak tampil dengan format “NRP | Nama | Pangkat | Status”, sehingga baris di tabel konsol rapi dan mudah dibaca.
 
 
 

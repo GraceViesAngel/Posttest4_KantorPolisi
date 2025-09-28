@@ -73,8 +73,10 @@ Dengan pembagian struktur seperti ini, sistem Kantor Polisi jadi lebih terorgani
 Pada program Sistem Kantor Polisi, konsep abstraction dipakai dengan memanfaatkan abstract class serta interface. Tujuannya supaya ada gambaran umum yang bisa diwarisi oleh subclass, namun detail implementasi tetap disesuaikan dengan kebutuhan masing-masing.
 
 1. Abstract Class – Kelas Personel
+
    
 <img width="632" height="459" alt="image" src="https://github.com/user-attachments/assets/1cd2f8b1-fe96-4fbf-9873-e30c166f9870" />
+
 
 
 
@@ -86,10 +88,14 @@ Metode ini tidak punya isi di dalam Personel, karena memang tiap jenis personel 
 
 
 
+
+
+
 2. Subclass Abstract Class – Kelas Polisi dan StaffSipil
 
 
 <img width="773" height="751" alt="image" src="https://github.com/user-attachments/assets/feea01ca-146f-40f8-90fc-d2fe779b9688" />
+
 
 
 <img width="928" height="812" alt="image" src="https://github.com/user-attachments/assets/b0b9cf9b-b3bf-44ee-b7ac-a1c6dfccfe47" />
@@ -101,14 +107,17 @@ Metode ini tidak punya isi di dalam Personel, karena memang tiap jenis personel 
 
 Di sini terlihat bagaimana Polisi dan StaffSipil mewarisi kerangka dari Personel. Mereka mengisi ulang (override) method deskripsiTugas() sesuai dengan peran masing-masing.
 
-Polisi → lebih fokus pada patroli, keamanan, dan penegakan hukum.
-Staff Sipil → lebih ke urusan administrasi dan operasional kantor.
+Polisi: lebih fokus pada patroli, keamanan, dan penegakan hukum.
+Staff Sipil: lebih ke urusan administrasi dan operasional kantor.
 
 Dengan konsep ini, setiap jenis personel otomatis punya identitas dasar (nama & id), tapi tetap punya tugas berbeda sesuai perannya.
 
 3. Interface – Pelaporan
 
+
+
 <img width="151" height="22" alt="image" src="https://github.com/user-attachments/assets/79569d82-09b0-4069-b109-f6b0226fc7ae" />
+
 
 
 
